@@ -8,7 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import '../application.scss'
+import '../css/application.css'
 
 require("trix")
 require("@rails/actiontext")
