@@ -31,7 +31,7 @@
   }
 }
 
-@layer base {
+
   .trix-content a {
     @apply text-blue-900 underline;
   }
@@ -39,4 +39,3 @@
   trix-toolbar {
     margin-top: 10px;
   }
-}
