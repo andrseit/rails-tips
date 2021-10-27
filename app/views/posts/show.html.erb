@@ -2,18 +2,18 @@
 
 <div class="post-show">
   <div>
-    <h2><%= @post.title %></h2>
+    <%= h1_header @post.title %>
   </div>
 
-  <div class="post-content">
+  <div class="rounded border border-gray-300 bg-gray-100 p-4 mb-4 w-2/4">
     <p>
       <%= @post.content %>
     </p>
   </div>
 
   <div class="post-actions">
-    <%= link_to 'Edit', edit_post_path(@post), class: 'btn-item-action' %>
-    <%= link_to 'Back', posts_path, class: 'btn-item-action' %>
+    <%= link_simple 'Edit', edit_post_path(@post) %> |
+    <%= link_simple 'Back', posts_path %>
   </div>
 
 </div>

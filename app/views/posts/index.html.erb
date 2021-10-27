@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<%= h1_header 'Posts' %>
 
-<table>
-
-  <tbody>
+<div class="w-9/12">
+  <table class="table-fixed w-full">
+    <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><strong><%= link_to post.title, post %></strong></td>
-        <td><%= link_to 'Edit', edit_post_path(post), class: 'btn-item-action' %></td>
-        <td><%= link_to 'Destroy', post, class: 'btn-item-action', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="border-b border-gray-200">
+        <td class="p-4 text-gray-600 font-medium"><strong><%= link_to post.title, post %></strong></td>
+        <td class="w-20"><%= link_simple 'Edit', edit_post_path(post), class: 'btn-item-action' %></td>
+        <td class="w-20"><%= link_simple 'Destroy', post, class: 'btn-item-action', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <br>
-
-<%= link_to '+ New Post', new_post_path, class: 'btn-new-post' %>
+<%= link_action_button '+ New Post', new_post_path %>
