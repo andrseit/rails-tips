@@ -9,13 +9,14 @@
     "@rails/webpacker": "4.3.0",
     "trix": "^1.2.0",
     "turbolinks": "^5.2.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-  },
-  "version": "0.1.0",
-  "devDependencies": {
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "autoprefixer": "^9.8.8",
     "postcss": "^7.0.39",
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+
     "webpack-dev-server": "~3"
   }
 }
