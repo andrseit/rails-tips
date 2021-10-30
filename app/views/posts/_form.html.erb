@@ -13,7 +13,12 @@
 
   <div class="grid grid-cols-1 mb-4">
     <%= label_for form, :title %>
-    <%= form.text_field :title, class: 'rounded border border-gray-400 p-1'%>
+    <%= input_text form, :title %>
+  </div>
+
+  <div class="grid grid-cols-1 mb-4">
+    <%= label_for form, :post_category_id %>
+    <%= form.select :post_category_id, PostCategory.all.collect { |c| [c.name, c.id] }, { include_blank: true }, { class: 'border border-grey-400 rounded h-8 cursor-pointer' } %>
   </div>
 
   <div class="field">
@@ -24,6 +29,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit class: 'rounded bg-blue-800 cursor-pointer my-4 py-2 px-3 text-white font-semibold hover:bg-blue-700' %>
+    <%= submit_button form %>
   </div>
 <% end %>

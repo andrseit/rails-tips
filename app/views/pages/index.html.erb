@@ -4,5 +4,10 @@
     Hello. Welcome to Rails tips. An app to concetrate knowledge from the web and my experience.
   Please visit the posts created so far.
   </p>
-  <%= link_simple 'Browse posts', posts_path %>
+
+  <div class="grid grid-cols-1 gap-2 text-lg">
+    <%= link_simple 'Browse posts', posts_path %>
+    <%= link_simple 'Browse categories', post_categories_path %>
+  </div>
+
 </div>

@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<%= h1_header 'Post Categories' %>
+
+<% if @post_categories.empty? %>
+  <div>No categories added yet.</div>
+<% else %>
+
+  <ul class="grid grid-cols-3 gap-3">
+    <% @post_categories.each do |post_category| %>
+      <li class="rounded-lg border-2 border-blue-400 bg-gray-100">
+        <%= link_to post_category, class: 'grid grid-cols-1 px-4 py-2' do %>
+          <span class="text-lg font-semibold text-gray-800"><%= post_category.name %></span>
+          <span class="text-sm text-gray-600 font-medium"><%= post_category.posts.count %> Posts</span>
+        <% end %>
+
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
+
+<%= link_action_button 'New Post Category', new_post_category_path %>

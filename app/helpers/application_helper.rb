@@ -21,6 +21,15 @@ module ApplicationHelper
     form.label field, class: 'text-lg font-medium mb-2'
   end
 
+  def input_text(form, method, options = {})
+    options[:class] = 'rounded border border-gray-400 p-1'
+    form.text_field method, options
+  end
+
+  def submit_button(form)
+    form.submit class: 'rounded bg-blue-800 cursor-pointer my-4 py-2 px-3 text-white font-semibold hover:bg-blue-700'
+  end
+
   private
 
   def render_link(text, url, html_options)

@@ -39,3 +39,25 @@
   trix-toolbar {
     margin-top: 10px;
   }
+
+  trix-editor ul {
+    padding: revert !important;
+    list-style: unset;
+  }
+
+  trix-editor ol {
+    padding: revert !important;
+    list-style: decimal !important;
+  }
+
+  .trix-content ul {
+    padding: revert !important;
+    list-style: unset;
+  }
+
+  .trix-content ol {
+    padding: revert !important;
+    list-style: decimal !important;
+  }
+
+

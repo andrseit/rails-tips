@@ -1,0 +1,25 @@
+<div class="text-lg text-gray-900 font-bold underline mb-2">Filters</div>
+
+<%= form_tag posts_path, method: 'get' do %>
+  <ul>
+    <li>
+      <div class="italic mb-2">By category</div>
+      <ul class="pl-4">
+        <% PostCategory.all.each do |post_category| %>
+          <li class="mb-2">
+            <%= check_box_tag "filters[category][]", post_category.id, false, id: post_category.html_id %>
+            <%= label_tag post_category.html_id, post_category.name %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+    <li>
+      <div class="italic mb-2">By update time</div>
+    </li>
+    <li>
+      <div class="italic mb-2">By create time</div>
+    </li>
+  </ul>
+
+  <%= button_tag 'Apply filters', class: 'border rounded border-blue-400 bg-blue-900 text-white px-2 py-1 font-medium' %>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<%= h1_header @post_category.name %>
+
+<% if @post_category.posts.empty? %>
+  <div class="mb-3">There are no posts in this category.</div>
+<% else %>
+  <div class="w-full lg:w-9/12">
+    <%= render partial: 'shared/posts_table', locals: { posts: @post_category.posts } %>
+  </div>
+  <br>
+  <%= link_action_button '+ New Post', new_post_path %>
+<% end %>
+
