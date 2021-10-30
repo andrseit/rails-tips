@@ -18,7 +18,12 @@
 
   <div class="grid grid-cols-1 mb-4">
     <%= label_for form, :post_category_id %>
-    <%= form.select :post_category_id, PostCategory.all.collect { |c| [c.name, c.id] }, { include_blank: true }, { class: 'border border-grey-400 rounded h-8 cursor-pointer' } %>
+
+    <% post_category = @post.post_category %>
+    <% post_category_id = nil %>
+    <% unless post_category.nil? then post_category_id = @post.post_category_id end %>
+    <% unless @post_category_id.nil? then post_category_id = @post_category_id end %>
+    <%= form.select :post_category_id, PostCategory.all.collect { |c| [c.name, c.id] }, { selected: post_category_id, include_blank: true }, { class: 'border border-grey-400 rounded h-8 cursor-pointer' } %>
   </div>
 
   <div class="field">

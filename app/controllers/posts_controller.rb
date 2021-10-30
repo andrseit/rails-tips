@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    if params.key? 'post_category_id'
+      @post_category_id = params.fetch 'post_category_id'
+    end
   end
 
   # GET /posts/1/edit

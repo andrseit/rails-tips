@@ -9,6 +9,8 @@
     <%= render partial: 'shared/posts_table', locals: { posts: @post_category.posts } %>
   </div>
   <br>
-  <%= link_action_button '+ New Post', new_post_path %>
 <% end %>
+<%= link_action_button '+ New Post', new_post_path(post_category_id: @post_category.id) %>
+<% confirm_message = @post_category.posts.empty? ? 'Are you sure?' : 'This category contains posts. Would you like to continue? Your posts will not be deleted.' %>
+<%= link_danger_button 'Delete', post_category_path(@post_category), method: :delete, data: { confirm: confirm_message } %>
 

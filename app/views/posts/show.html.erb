@@ -4,16 +4,21 @@
   <div>
     <%= h1_header @post.title %>
   </div>
+  <% post_category = @post.post_category %>
 
-  <div class="rounded border border-gray-300 bg-gray-100 p-4 mb-4 w-full md:w-2/4">
+  <% unless post_category.nil? %>
+    <span class="p-1 pl-4 text-gray-900 text-sm italic mb-4 block">View more posts from category: <%= link_simple post_category.name, post_category_path(post_category) %></span>
+  <% end %>
+
+  <div class="rounded border border-gray-300 bg-gray-100 p-4 mb-4 w-full lg:w-2/4">
     <p>
       <%= @post.content %>
     </p>
   </div>
 
   <div class="post-actions">
-    <%= link_simple 'Edit', edit_post_path(@post) %> |
-    <%= link_simple 'Back', posts_path %>
+    <%= link_warning_button 'Edit', edit_post_path(@post) %>
+    <%= link_danger_button 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 
 </div>
