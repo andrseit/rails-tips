@@ -7,8 +7,8 @@
       <ul class="pl-4">
         <% PostCategory.all.each do |post_category| %>
           <li class="mb-2">
-            <%= check_box_tag "filters[category][]", post_category.id, false, id: post_category.html_id %>
-            <%= label_tag post_category.html_id, post_category.name %>
+            <%= check_box_tag "filters[category][]", post_category.id, false, id: "category_#{post_category.id}" %>
+            <%= label_tag "category_#{post_category.id}", post_category.name %>
           </li>
         <% end %>
       </ul>

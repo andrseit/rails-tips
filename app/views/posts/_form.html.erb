@@ -33,6 +33,15 @@
     </div>
   </div>
 
+  <div class="mt-4 grid grid-cols-3 md:grid-cols-6">
+    <%= form.collection_check_boxes :tag_ids, Tag.all, :id, :name do |tag| %>
+      <div class="mx-2 my-1 cursor-pointer">
+        <%= tag.check_box class: 'bg-red-700 cursor-pointer' %>
+        <%= tag.label class: 'cursor-pointer' %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= submit_button form %>
   </div>
