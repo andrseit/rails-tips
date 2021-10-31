@@ -5,14 +5,16 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = if params.key? 'tag'
-               Post
-                 .joins(:post_tags)
-                 .where('post_tags.tag_id = :id', { id: params.fetch('tag') })
-                 .distinct
-             else
-               Post.all
-             end
+    if params.key? 'tag'
+      @posts = Post
+               .joins(:post_tags)
+               .where('post_tags.tag_id = :id', { id: params.fetch('tag') })
+               .distinct
+      # TODO: If possible avoid two queries
+      @tag = Tag.find(params.fetch('tag'))
+    else
+      @posts = Post.all
+    end
   end
 
   # GET /posts/1 or /posts/1.json

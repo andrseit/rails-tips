@@ -16,13 +16,18 @@
     </p>
   </div>
 
-  <div class="inline-block mb-4 flex">
+  <div class="inline-block flex">
     <% @post.tags.each do |tag| %>
       <%= render partial: 'tag_box', locals: { tag: tag } %>
     <% end %>
   </div>
 
-  <div class="post-actions">
+  <div class="grid grid-cols-1 gap-1 mt-2">
+    <div class="text-xs text-gray-700 pl-1">Created at: <%= @post.created_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></div>
+    <div class="text-xs text-gray-700 pl-1">Updated at: <%= @post.updated_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></div>
+  </div>
+
+  <div class="post-actions mt-4">
     <%= link_warning_button 'Edit', edit_post_path(@post) %>
     <%= link_danger_button 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>

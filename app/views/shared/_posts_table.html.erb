@@ -2,9 +2,10 @@
   <tbody>
   <% posts.each do |post| %>
     <tr class="border-b border-gray-200">
-      <td class="p-4 text-gray-600 font-medium"><strong><%= link_to post.title, post %></strong></td>
-      <td class="w-20"><%= link_simple 'Edit', edit_post_path(post), class: 'btn-item-action' %></td>
-      <td class="w-20"><%= link_simple 'Destroy', post, class: 'btn-item-action', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td class="p-4 text-gray-700 font-medium grid grid-cols-1">
+        <span><strong><%= link_to post.title, post %></strong></span>
+        <span class="text-xs text-gray-500 mt-2 pl-1">Last updated at: <%= post.updated_at.localtime.strftime '%Y-%m-%d %H:%M:%S' %></span>
+      </td>
     </tr>
   <% end %>
   </tbody>
