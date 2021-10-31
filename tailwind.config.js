@@ -1,16 +1,21 @@
 module.exports = {
-  purge: [
+    purge: {
+        content: [
+            './app/**/*.html.erb',
+            './app/helpers/**/*.rb',
 
-    './app/**/*.html.erb',
-    './app/helpers/**/*.rb',
-
-  ],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+        ],
+        safelist: [
+            'bg-yellow-700',
+            'bg-yellow-600'
+        ]
+    },
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
 }
