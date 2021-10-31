@@ -42,6 +42,13 @@
     <% end %>
   </div>
 
+  <div class="">
+    <%= form.fields_for :tags do |tag_builder| %>
+      <%= tag_builder.label :name, 'Add new' %>
+      <%= input_text tag_builder, :name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= submit_button form %>
   </div>
