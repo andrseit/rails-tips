@@ -7,7 +7,9 @@ class PostCategoriesController < ApplicationController
   end
 
   # GET /post_categories/1 or /post_categories/1.json
-  def show; end
+  def show
+    @posts = @post_category.posts.page params[:page]
+  end
 
   # GET /post_categories/new
   def new

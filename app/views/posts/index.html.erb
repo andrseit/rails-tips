@@ -16,9 +16,8 @@
 <% unless @tag.nil? %>
   <div class="text-sm text-gray-900 italic pl-2 mb-2">You are viewing posts with tag: <%= @tag.name %></div>
 <% end %>
-<div class="w-full lg:w-9/12 flex flex-wrap md:flex-nowrap">
+<div class="w-full lg:w-9/12">
   <%= render partial: 'shared/posts_table', locals: { posts: @posts } %>
 </div>
-
 <br>
 <%= link_action_button '+ New Post', new_post_path %>

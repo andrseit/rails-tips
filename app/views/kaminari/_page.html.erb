@@ -1,0 +1,26 @@
+<%# Link showing page number
+  - available local variables
+    page:          a page object for "this" page
+    url:           url to this page
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+<% shared_class = 'border-2 font-medium border-blue-900 text-center rounded text-center px-2 py-1 m-px page' %>
+<% other_page_class = 'bg-white text-blue-900' %>
+<% current_page_class = 'bg-blue-700 text-white' %>
+<% selected_class = if page.current? then current_page_class else other_page_class end %>
+<% final_class = "#{shared_class} #{selected_class}" %>
+
+<% if page.current? %>
+<span class="<%= final_class %>">
+  <%= page %>
+</span>
+<% else %>
+  <%= link_to url, {remote: remote, rel: page.rel, class: final_class } do %>
+    <span>
+      <%= page %>
+    </span>
+  <% end %>
+<% end %>

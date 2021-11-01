@@ -6,7 +6,7 @@
   <div class="mb-3">There are no posts in this category.</div>
 <% else %>
   <div class="w-full lg:w-9/12">
-    <%= render partial: 'shared/posts_table', locals: { posts: @post_category.posts } %>
+    <%= render partial: 'shared/posts_table', locals: { posts: @posts } %>
   </div>
   <br>
 <% end %>
