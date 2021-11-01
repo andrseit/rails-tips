@@ -10,6 +10,8 @@ require("channels")
 
 import '../css/application.css'
 
+require('jquery')
+
 require("trix")
 require("@rails/actiontext")
 
