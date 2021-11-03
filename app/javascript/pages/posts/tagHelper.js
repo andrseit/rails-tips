@@ -65,6 +65,7 @@ export default class TagHelper {
         // TODO: Find a better way
         const lastLabel = $(this.tagContainer).find('span').last()
         console.log(lastLabel)
+        if (lastLabel.length === 0) $(this.tagContainer).prepend(tagLabel)
         $(this.tagLabel).insertAfter(lastLabel)
     }
 
