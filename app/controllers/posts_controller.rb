@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       # TODO: If possible avoid two queries
       @tag = Tag.find(params.fetch('tag'))
     else
-      @posts = Post.all
+      @posts = Post.ransack(params[:q]).result
     end
     @posts = @posts.page params[:page]
   end
@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post_category_id = params.fetch 'post_category_id' if params.key? 'post_category_id'
-    @post.tags.build
   end
 
   # GET /posts/1/edit
@@ -77,6 +76,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :content, :post_category_id, tag_ids: [], tags_attributes: [:name])
+    params.require(:post).permit(:title, :content, :post_category_id, tag_ids: [])
   end
 end

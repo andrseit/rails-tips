@@ -11,13 +11,16 @@ require("channels")
 import '../css/application.css'
 
 require('jquery')
+require('easy-autocomplete')
 
 require("trix")
 require("@rails/actiontext")
 
 // Custom files import
 import ShowPostsPage from '../pages/posts/show'
+import FormPostsPage from '../pages/posts/form'
 
 document.addEventListener('turbolinks:load', () => {
   ShowPostsPage()
+  FormPostsPage()
 })
