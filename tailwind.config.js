@@ -13,7 +13,8 @@ module.exports = {
             'z-auto',
             'relative',
             'bg-white',
-            'ml-2'
+            'ml-2',
+            'absolute'
         ]
     },
     darkMode: false, // or 'media' or 'class'

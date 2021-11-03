@@ -31,7 +31,7 @@ function _tag_search_listener(form, tagsContainer) {
         ],
         list: {
             onChooseEvent: function() {
-                if (selectedTags.length === 3) {
+                if (selectedTags.length === 5) {
                     console.log('No more than 5 tags.')
                 } else {
                     const id = input.getSelectedItemData().id
@@ -54,13 +54,14 @@ function _tag_search_listener(form, tagsContainer) {
             },
             onShowListEvent: function () {
                 const listContainer = $('#eac-container-tag-search')
-                listContainer.addClass('mt-2 border border-gray-800 rounded px-2 z-auto relative bg-white')
+                listContainer.addClass('w-full mt-px border border-gray-800 rounded px-2 absolute bg-white')
             },
             onHideListEvent: function () {
                 const listContainer = $('#eac-container-tag-search')
-                listContainer.removeClass('mt-2 border border-gray-800 rounded px-2 z-auto relative bg-white')
+                listContainer.removeClass('w-full mt-px border border-gray-800 rounded px-2 absolute bg-white')
             }
         },
+        cssClasses: ['relative mt-2']
     };
     input.easyAutocomplete(options)
 }

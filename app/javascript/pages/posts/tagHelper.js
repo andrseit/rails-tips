@@ -12,8 +12,7 @@ export default class TagHelper {
             // find label
             this.tagLabel = existing
             // find input with value 1
-            const inputEl = $(postForm).find(`input[value=${id}]`)
-            this.input = inputEl
+            this.input = $(postForm).find(`input[value=${id}]`)
             // add button
             const xButtonEl = this._createRemoveButton()
             $(this.tagLabel).append(xButtonEl)
@@ -61,7 +60,12 @@ export default class TagHelper {
         this.xButtonEl = xButtonEl
         // TODO: remove line below this from here put it in constructor and separate create with append
         this.tagLabel = tagLabel
-        $(this.tagContainer).append(tagLabel)
+
+        // where to append - after last label - maybe this is bad for performance
+        // TODO: Find a better way
+        const lastLabel = $(this.tagContainer).find('span').last()
+        console.log(lastLabel)
+        $(this.tagLabel).insertAfter(lastLabel)
     }
 
     get xButton () {

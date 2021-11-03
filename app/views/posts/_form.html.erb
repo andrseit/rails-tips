@@ -40,13 +40,13 @@
     <%# end %>
 <!--  </div>-->
 
-  <div class="flex mt-4 p-2 border border-gray-800 rounded h-12">
+  <div class="flex mt-4 rounded">
     <span id="tags-container">
       <% @post.tags.each do |tag| %>
-        <span class="saved-label rounded border-gray-500 border bg-gray-100 px-2 py-1 mr-2 block h-8 inline-flex" data-label_id="<%= tag.id %>"><%= tag.name %></span>
+        <span class="saved-label rounded border-gray-500 border bg-gray-100 px-2 py-1 mr-2 mb-2 block h-8 inline-flex" data-label_id="<%= tag.id %>"><%= tag.name %></span>
       <% end %>
+      <%= text_field_tag :q, '', { placeholder: "Click to add tags", data: { behavior: "autocomplete" }, class: "px-2 rounded border border-blue-700 h-8", id: 'tag-search' } %>
     </span>
-    <%= text_field_tag :q, '', { placeholder: "Search", data: { behavior: "autocomplete" }, class: "px-2 rounded border border-blue-700 h-8", id: 'tag-search' } %>
   </div>
 
   <%# TODO: Add hidden inputs too %>
