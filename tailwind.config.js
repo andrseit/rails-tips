@@ -7,7 +7,13 @@ module.exports = {
         ],
         safelist: [
             'bg-yellow-700',
-            'bg-yellow-600'
+            'bg-yellow-600',
+            'h-8',
+            'inline-flex',
+            'z-auto',
+            'relative',
+            'bg-white',
+            'ml-2'
         ]
     },
     darkMode: false, // or 'media' or 'class'
