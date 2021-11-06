@@ -23,6 +23,10 @@ export default class TagHelper {
         }
     }
 
+    get name () {
+        return this.label
+    }
+
     get index () {
         return this.aIndex
     }

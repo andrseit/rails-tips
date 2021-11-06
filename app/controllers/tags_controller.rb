@@ -3,7 +3,9 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json {
-        @tags = Tag.ransack(name_cont: params[:q]).result(distinct: true)
+        @tags = Tag.ransack(name_cont: params[:q])
+                   .result(distinct: true)
+                   .where.not(name: params[:except])
       }
     end
   end
