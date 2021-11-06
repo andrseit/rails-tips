@@ -26,7 +26,7 @@
     <%= form.select :post_category_id, PostCategory.all.collect { |c| [c.name, c.id] }, { selected: post_category_id, include_blank: true }, { class: 'border border-grey-400 rounded h-8 cursor-pointer' } %>
   </div>
 
-  <div class="field">
+  <div class="field mb-2">
     <%= label_for form, :content %>
     <div class="">
       <%= form.rich_text_area :content, class: 'mt-4' %>
@@ -40,7 +40,9 @@
     <%# end %>
 <!--  </div>-->
 
-  <div class="flex mt-4 rounded">
+  <%= label_for form, :tags %> <br>
+  <span class="text-gray-600 text-xs pl-1">Add up to 5 tags to describe what your question is about</span>
+  <div class="flex rounded">
     <span id="tags-container">
       <% @post.tags.each do |tag| %>
         <span class="saved-label rounded border-gray-500 border bg-gray-100 px-2 py-1 mr-2 mb-2 block h-8 inline-flex" data-label_id="<%= tag.id %>"><%= tag.name %></span>

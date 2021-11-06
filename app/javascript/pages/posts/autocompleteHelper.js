@@ -56,7 +56,7 @@ export default class AutocompleteHelper {
         const selectedTags = obj.selectedTags
 
         if (selectedTags.length === 5) {
-            console.log('No more than 5 tags.')
+            console.log('Already 5 tags')
         } else {
             const id = selectedItem.id
             const name = selectedItem.name
@@ -72,7 +72,10 @@ export default class AutocompleteHelper {
                 $(tagHelper.xButton).on('remove-label', function () {
                     selectedTags.splice(tagHelper.index, 1)
                     obj._updateTagHelpersIndexes()
+                    if(obj.selectedTags.length < 5)
+                        obj.tagsInput.attr('placeholder', 'Click to add tags')
                 })
+                obj.tagsInput.attr('placeholder', 'You cannot add more tags')
             }
         }
         this._clearInput()
@@ -99,9 +102,13 @@ export default class AutocompleteHelper {
         // find which tags to except
         const except = this.selectedTags.map(tag => tag.name)
         let queryParam = ''
-        except.forEach(function (label) {
-            queryParam += `&except[]=${label}`
-        })
+        if (this.selectedTags.length < 5) {
+            except.forEach(function (label) {
+                queryParam += `&except[]=${label}`
+            })
+        } else {
+            queryParam = '&except[]=everything'
+        }
         return queryParam
     }
 
