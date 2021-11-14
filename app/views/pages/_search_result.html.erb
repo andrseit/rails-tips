@@ -1,0 +1,13 @@
+<div class="p-2">
+  <div class="rounded bg-gray-200 p-2">
+    <h2 class="text-xl font-bold text-gray-800 mb-4"><%= header %></h2>
+    <% if results.empty? %>
+      <span class="text-sm text-gray-500">No results found.</span>
+    <% end %>
+    <ul class="pl-2">
+      <% results.each do |result| %>
+        <li class="text-blue-800 py-px mb-px hover:underline"><%= link_to result[:text], result[:link] %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

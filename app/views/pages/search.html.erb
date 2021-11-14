@@ -1,0 +1,11 @@
+<div class="">
+  <div class="grid grid-cols-2 mb-4">
+    <%= render partial: 'pages/search_result', locals: { header: 'Tags', results: @tags } %>
+    <%= render partial: 'pages/search_result', locals: { header: 'Categories', results: @categories } %>
+  </div>
+
+  <div class="grid grid-cols-2">
+    <%= render partial: 'pages/search_result', locals: { header: 'Posts (title based)', results: @title_posts } %>
+    <%= render partial: 'pages/search_result', locals: { header: 'Posts (content based)', results: @content_posts } %>
+  </div>
+</div>
